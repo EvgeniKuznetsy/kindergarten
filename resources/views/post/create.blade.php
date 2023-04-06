@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title',"Создание")
-@section('content')
+
 
 
     <div class="w-75 mx-auto">

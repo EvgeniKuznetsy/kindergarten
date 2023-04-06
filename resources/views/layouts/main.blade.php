@@ -22,15 +22,21 @@
         </div>
         <ul>
             <li class="nav-item"><a href="{{route('main.index')}}" class="nav-link active" aria-current="page">Главная</a></li>
-            <li class="nav-item"><a href="{{route('post.index')}}" class="nav-link">Новости</a></li>
+            <li class="nav-item"><a href="{{route('news.index')}}" class="nav-link">Новости</a></li>
             <li class="nav-item"><a href="{{route('about.index')}}" class="nav-link">Родителям</a></li>
             <li class="nav-item"><a href="{{route('contact.index')}}" class="nav-link">Наши группы</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Фотогалерея</a></li>
-            <li class="nav-item">@if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif</li>
+            <li class="nav-item"><a href="{{route('photogalery.index')}}" class="nav-link">Фотогалерея</a></li>
+
+            <form method="post" action="{{route('logout')}}">
+                @csrf
+                @auth()
+                    <li class="nav-item"><a href="{{route('logout')}}" class="nav-link">Выход</a></li>
+                @else
+                    <li class="nav-item"><a href="{{route('home')}}" class="nav-link">Регистрация/Авторизация</a></li>
+                @endauth
+
+            </form>
+
 
         </ul>
     </nav>

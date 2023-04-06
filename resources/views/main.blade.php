@@ -1,5 +1,7 @@
 @extends('layouts.main')
+@section('title',"Главная")
 @section('content')
+
     <div class="main">
     <div class="w-500 text-center mt-5">
         <h1>Наши здания</h1>

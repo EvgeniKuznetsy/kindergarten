@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('content')
+
 
     <div class="w-75 mx-auto">
         <form action="{{route('post.update',$post->id)}}" method="post">

@@ -47,4 +47,6 @@ class PostController extends BaseController
     public function returnMain(){
         return redirect()->route('main.index');
     }
-}
+public function reloc(){
+    return redirect()->route('main.index');
+}}

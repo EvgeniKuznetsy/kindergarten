@@ -10,10 +10,16 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', "HomeController@index")->name('home');\
-Route::group(['namespace'=>'Post'],function () {
+Route::get('/auth', "HomeController@index")->name('home');
+
+Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class,'logout'])->middleware('auth')->name('logout');
+
+
+Route::get('/', "PostController@reloc");
+Route::group(['namespace'=>'Admin\Post'],function () {
 
     Route::get('/posts', "IndexController@index")->name('post.index');
     Route::get('/posts/create', "IndexController@create")->name('post.create');
@@ -25,7 +31,7 @@ Route::group(['namespace'=>'Post'],function () {
 });
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'admin'],function (){
     Route::group(['namespace' => 'Post'], function () {
-        Route::get('/post',"IndexController")->name('admin.post.index');
+        Route::get('/admin/posts',"IndexController")->name('admin.post.index');
     });
 });
 
@@ -33,6 +39,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'admin'],func
 Route::get('/main',"MainController@index")->name('main.index');
 Route::get('/contacts',"ContactsController@index")->name('contact.index');
 Route::get('/about',"AboutController@index")->name('about.index');
+Route::get('/news',"NewsController@index")->name('news.index');
+Route::get('/photogalery',"PhotogaleryController@index")->name('photogalery.index');
 
 
 
@@ -40,5 +48,7 @@ Route::get('/about',"AboutController@index")->name('about.index');
 
 
 Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');

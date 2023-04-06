@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title',"Наши группы")
 @section('content')
     <div class="main"></div>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-auto position-sticky top-100 border-top bg-dark">

@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@section('content')
 
     <div class="w-75 mx-auto">
         <div><a href="{{route('post.create')}}"><h1>Создать</h1></a></div>

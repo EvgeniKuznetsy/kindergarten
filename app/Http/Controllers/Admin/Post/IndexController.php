@@ -10,6 +10,10 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
+
+    } public function index()
+    {
         return view('admin.post.index');
     }
+
 }

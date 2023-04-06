@@ -1,5 +1,4 @@
 @extends('layouts.main')
-@section('content')
 
     <div class="w-75 mx-auto">
        <div><h1>{{$post->id}}.{{$post->title}}</h1></div>
