@@ -43,8 +43,6 @@ class LoginController extends Controller
     }
     public function index(){
 
-
-
         return redirect()->route('main.index');
     }
     public function logout(){

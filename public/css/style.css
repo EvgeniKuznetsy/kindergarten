@@ -70,3 +70,7 @@ li a{
 .carousel img{
     max-height: 600px;
 }
+.width_image{
+    width: 100%;
+    height: auto;
+}

@@ -10,12 +10,15 @@
 |
 */
 
-use App\Http\Controllers\Admin\Post\IndexController;
+use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\Post\NewsController;
+use App\Http\Controllers\Admin\Parents\ParentsController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/auth', "HomeController@index")->name('home');
-Route::get('/', "PostController@reloc");
+Route::get('/', "PageController@reloc");
 
 
 Route::middleware('auth')->group(function () {
@@ -26,24 +29,40 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [IndexController::class, 'index'])->name('admin');
 
-            Route::prefix('posts')->group(function () {
-                Route::get('/', [IndexController::class, 'posts'])->name('admin.posts.index');
+            Route::prefix('news')->group(function () {
+                Route::get('/', [IndexController::class, 'news'])->name('admin.news.index');
 
+                Route::get('/create', [IndexController::class, 'newsCreate'])->name('admin.news.createPage');
+                Route::post('/create', [NewsController::class, 'create'])->name('admin.post.news.create');
 
+                Route::get('/edit/{news}', [IndexController::class, 'newsUpdate'])->name('admin.news.updatePage');
+                Route::post('/edit/{news}', [NewsController::class, 'edit'])->name('admin.news.edit');
+
+                Route::get('/delete/{news}', [NewsController::class, 'delete'])->name('admin.news.delete');
+            });
+            Route::prefix('parents')->group(function () {
+                Route::get('/', [IndexController::class, 'parents'])->name('admin.parents.index');
+
+                Route::get('/create', [IndexController::class, 'parentsCreate'])->name('admin.parents.createPage');
+                Route::post('/create', [ParentsController::class, 'create'])->name('admin.post.parents.create');
+
+                Route::get('/edit/{parents}', [IndexController::class, 'parentsUpdate'])->name('admin.parents.updatePage');
+                Route::post('/edit/{parents}', [ParentsController::class, 'edit'])->name('admin.parents.edit');
+
+                Route::get('/delete/{parents}', [ParentsController::class, 'delete'])->name('admin.parents.delete');
             });
         });
     });
 });
 
-            Route::get('/main', "MainController@index")->name('main.index');
-            Route::get('/contacts', "ContactsController@index")->name('contact.index');
-            Route::get('/about', "AboutController@index")->name('about.index');
-            Route::get('/news', "NewsController@index")->name('news.index');
-            Route::get('/photogalery', "PhotogaleryController@index")->name('photogalery.index');
+Route::get('/main', "MainController@index")->name('main.index');
+Route::get('/group', "GroupController@index")->name('group.index');
+Route::get('/parents', [PageController::class, 'parents'])->name('parents.index');
+Route::get('/photogalery', "PhotogaleryController@index")->name('photogalery.index');
+Route::get('/news', [PageController::class, 'news'])->name('news');
 
-
-            Auth::routes();
-            Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 
