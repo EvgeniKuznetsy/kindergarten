@@ -15,7 +15,7 @@
                         <p>{{$parents->created_at}}</p>
                         <h2>{{$parents->title}}</h2>
                         <p>{{$parents->text}}</p>
-                        <p>{{$parents->document}}</p>
+                        <p><a href="{{$parents->document}}">Просмотр pdf</a></p>
                     </div>
                 </div>
             @empty

@@ -14,9 +14,9 @@
 </head>
 <body>
 <div class="wrapper">
-    <header>
+    <header class="">
 
-        <nav>
+        <nav class="">
             <div class="container_logo">
                 <a href="#"><img src="{{asset('image/logo.jpg')}}" alt="" class="bird"></a>
             </div>
