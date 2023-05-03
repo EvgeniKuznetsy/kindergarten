@@ -26,7 +26,7 @@
                 <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Новости</a></li>
                 <li class="nav-item"><a href="{{route('parents.index')}}" class="nav-link">Родителям</a></li>
                 <li class="nav-item"><a href="{{route('group.index')}}" class="nav-link">Наши группы</a></li>
-                <li class="nav-item"><a href="{{route('photogalery.index')}}" class="nav-link">Фотогалерея</a></li>
+                <li class="nav-item"><a href="{{route('photo_gallery')}}" class="nav-link">Фотогалерея</a></li>
 
                 <form method="post" action="{{route('logout')}}">
                     @csrf
