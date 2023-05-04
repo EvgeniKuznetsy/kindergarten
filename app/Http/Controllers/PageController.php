@@ -20,8 +20,9 @@ class PageController extends Controller
     }
     public function title(){
         $title = Title_photo_gallery::orderByDesc('id')->limit(5)->get();
+        $photo = Photo_gallery::orderByDesc('id')->get();
 
-        return view('photo_gallery', compact('title'));
+        return view('photo_gallery', compact('title','photo'));
     }
     public function photo(Request $request){
         $id=$request->id;
