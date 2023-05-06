@@ -11,11 +11,6 @@
             @csrf
             <div class="mb-3">
 
-                <h5 class="mb-2">Название группы</h5>
-                <input required type="text" name="name" class="form-control w-50">
-            </div>
-            <div class="mb-3">
-
                 <h5 class="mb-2">ФИО</h5>
                 <input required type="text" name="full_name" class="form-control w-50">
             </div>
@@ -47,6 +42,7 @@
             </div>
             <div> <button type="submit" class="btn btn-primary mt-2">Создать анкеты</button>
                 <input type="button" id="btnEvent" value="Добавить анкет" class="btn btn-primary mt-2 ml-2" ></div>
+            <input required type="hidden" name="educator_group_id" value="{{$id}}">
 
         </form>
 

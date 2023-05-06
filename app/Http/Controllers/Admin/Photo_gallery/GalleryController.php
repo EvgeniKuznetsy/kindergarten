@@ -14,7 +14,7 @@ class GalleryController extends BaseController
     public function create(Request $request): \Illuminate\Http\RedirectResponse
     {
         $id=$request->title_photo_gallery_id;
-        $titleId=Title_photo_gallery::find($id);
+
 
 
         $path = $request->file('image')->store('public');

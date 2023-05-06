@@ -6,6 +6,15 @@
 
         <li class="nav-header">Admin panel</li>
         <li class="nav-item">
+            <a href="{{route('admin')}}" class="nav-link">
+                <i class="nav-icon fas fa-align-justify"></i>
+                <p>
+                    Главная
+                    <span class="badge badge-info right"></span>
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{route('admin.news.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-align-justify"></i>
                 <p>
@@ -24,7 +33,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{route('admin.educators.index')}}" class="nav-link">
+            <a href="{{route('admin.educators_groups.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-align-justify"></i>
                 <p>
                     Группы

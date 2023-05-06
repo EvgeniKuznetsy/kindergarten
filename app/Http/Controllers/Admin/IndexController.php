@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\Parents\ParentsController;
-use App\Http\Controllers\Admin\Group\EducatorsController;
+
 use App\Http\Controllers\Admin\Photo_gallery\GalleryController;
 
 use App\Models\Educator;
-use App\Models\Group;
+use App\Models\Educators_group;
 use App\Models\News;
 use App\Models\For_parents;
 use App\Models\Photo_gallery;
@@ -21,8 +23,13 @@ class   IndexController extends Controller
 
     public function index()
     {
-
-        return view('layouts.admin');
+        $news=News::orderByDesc('id')->limit(1)->get();
+        $parents=For_parents::orderByDesc('id')->limit(1)->get();
+        $group = Educators_group::orderByDesc('id')->get();
+        $educators= Educator::orderByDesc('id')->limit(1)->get();
+        $title = Title_photo_gallery::orderByDesc('id')->get();
+        $photo = Photo_gallery::orderByDesc('id')->limit(1)->get();
+        return view('includes.admin.content',compact('news','parents','group','educators','title','photo'));
     }
     public function news() {
         $news = News::get();
@@ -50,16 +57,27 @@ class   IndexController extends Controller
         return view('admin.parents.edit', compact('parents' ));
     }
 
-    public function educators() {
+    public function educators_groups() {
 
 
-        $educators = Educator::get();
+        $educators_groups= Educators_group::get();
 
-        return view('admin.educators.index', compact('educators'));
+        return view('admin.educators_groups.index', compact('educators_groups'));
     }
-    public function educatorsCreate() {
+    public function educators_groupsCreate() {
 
-        return view('admin.educators.create');
+        return view('admin.educators_groups.create');
+    }
+    public function educators($id) {
+
+
+        $educators = Educator::where('educator_group_id',$id)->get();
+
+        return view('admin.educators.index', compact('educators','id'));
+    }
+    public function educatorsCreate($id) {
+
+        return view('admin.educators.create',compact('id'));
     }
 
 
@@ -80,7 +98,7 @@ class   IndexController extends Controller
     }
     public function photo_gallery($id) {
 
-        $titel_photo_gallery = Title_photo_gallery::get();
+        $titel_photo_gallery = Title_photo_gallery::where('id',$id)->get();
         $photo_gallery= Photo_gallery::where('title_photo_gallery_id',$id)->get();
 
         return view('admin.gallery.index', compact('photo_gallery','titel_photo_gallery','id'));

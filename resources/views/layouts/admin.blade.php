@@ -49,13 +49,13 @@
                 <a href="{{asset('news')}}" class="nav-link">Новости</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('about')}}" class="nav-link">Родителям</a>
+                <a href="{{asset('parents')}}" class="nav-link">Родителям</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('group')}}" class="nav-link">Наши группы</a>
+                <a href="{{asset('title_group')}}" class="nav-link">Наши группы</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('photogalery')}}" class="nav-link">Фотогалерея</a>
+                <a href="{{asset('photo_gallery')}}" class="nav-link">Фотогалерея</a>
             </li>
 
 {{--            @if($name!="admin")--}}
@@ -106,10 +106,8 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                @yield('content')
-                <!-- Small boxes (Stat box) -->
 
-                <!-- /.row (main row) -->
+                @yield('content')
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->

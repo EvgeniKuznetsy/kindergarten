@@ -10,7 +10,8 @@
 |
 */
 
-use App\Http\Controllers\Admin\Educators\EducatorsController;
+use App\Http\Controllers\Admin\Educators\Educator_groupController;
+use App\Http\Controllers\Admin\Educators\EducatorController;
 use App\Http\Controllers\Admin\Photo_gallery\GalleryController;
 use App\Http\Controllers\Admin\Photo_gallery\Photo_galleryController;
 use App\Http\Controllers\Admin\IndexController;
@@ -57,17 +58,31 @@ Route::middleware('auth')->group(function () {
                 Route::get('/delete/{parents}', [ParentsController::class, 'delete'])->name('admin.parents.delete');
             });
 
-            Route::prefix('educators')->group(function () {
-                Route::get('/', [IndexController::class, 'educators'])->name('admin.educators.index');
+            Route::prefix('educators_groups')->group(function () {
+                Route::get('/', [IndexController::class, 'educators_groups'])->name('admin.educators_groups.index');
 
-                Route::get('/educators', [IndexController::class, 'educatorsCreate'])->name('admin.educators.createPage');
-                Route::post('/educators', [\App\Http\Controllers\Admin\Educators\EducatorsController::class, 'create'])->name('admin.post.educators.create');
+                Route::get('/groups', [IndexController::class, 'educators_groupsCreate'])->name('admin.educators_groups.createPage');
+                Route::post('/groups', [Educator_groupController::class, 'create'])->name('admin.post.educators_groups.create');
 
-                Route::get('/edit/{educators}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-                Route::post('/edit/{educators}', [\App\Http\Controllers\Admin\Educators\EducatorsController::class, 'edit'])->name('admin.educators.edit');
+//                Route::get('/edit/{educators}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
+//                Route::post('/edit/{educators}', [Photo_galleryController::class, 'edit'])->name('admin.educators.edit');
 
-                Route::get('/delete/{educators}', [\App\Http\Controllers\Admin\Educators\EducatorsController::class, 'delete'])->name('admin.educators.delete');
+                Route::get('/delete/{groups}', [Educator_groupController::class, 'delete'])->name('admin.educators_groups.delete');
             });
+            Route::prefix('educators')->group(function () {
+                Route::get('/{id}', [IndexController::class, 'educators'])->name('admin.educators.index');
+
+                Route::get('/educator/{id}', [IndexController::class, 'educatorsCreate'])->name('admin.educators.createPage');
+                Route::post('/educator', [EducatorController::class, 'create'])->name('admin.post.educators.create');
+//
+//                Route::get('/edit/{educator}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
+//                Route::post('/edit/{educator}', [EducatorController::class, 'edit'])->name('admin.educators.edit');
+
+                Route::get('/delete/{educator}', [EducatorController::class, 'delete'])->name('admin.educators.delete');
+            });
+
+
+
             Route::prefix('title_photo_gallery')->group(function () {
                 Route::get('/', [IndexController::class, 'title_photo_gallery'])->name('admin.title_photo_gallery.index');
 
@@ -85,8 +100,6 @@ Route::middleware('auth')->group(function () {
                 Route::get('/photo/{id}', [IndexController::class, 'photo_galleryCreate'])->name('admin.photo_gallery.createPage');
                 Route::post('/photo', [GalleryController::class, 'create'])->name('admin.post.photo_gallery.create');
 
-//                Route::get('/edit/{educators}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-//                Route::post('/edit/{educators}', [GalleryController::class, 'edit'])->name('admin.educators.edit');
 
                 Route::get('/delete/{photo}', [GalleryController::class, 'delete'])->name('admin.photo_gallery.delete');
             });
@@ -95,7 +108,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/main', "MainController@index")->name('main.index');
-Route::get('/group', "GroupController@index")->name('group.index');
+Route::get('/title_group', [PageController::class,'title_group'])->name('title_group.index');
+Route::get('/title_group/educator/{id}', [PageController::class, 'educator'])->name('educator');
 Route::get('/parents', [PageController::class, 'parents'])->name('parents.index');
 Route::get('/photo_gallery', [PageController::class, 'title'])->name('photo_gallery');
 Route::get('/photo_gallery/photo/{id}', [PageController::class, 'photo'])->name('photo');

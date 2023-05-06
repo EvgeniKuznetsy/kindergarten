@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-text">
 
-                        <a href="{{route('admin.photo_gallery.createPage',$gallery->id)}}">{{$gallery->title}}</a>
+                        <a href="{{route('admin.photo_gallery.index',$gallery->id)}}">{{$gallery->title}}</a>
 
                         <div class="mt-2 mb-2"></div><a href="{{route('admin.title_photo_gallery.delete', $gallery)}}" class="btn btn-danger">Удалить</a>
                     </div>
