@@ -15,6 +15,12 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function main(){
+
+        $photo=Photo_gallery::orderByDesc('id')->limit(5)->get();
+        return view("main",compact('photo'));
+
+    }
     public function news(){
         $news = News::orderByDesc('id')->limit(5)->get();
 

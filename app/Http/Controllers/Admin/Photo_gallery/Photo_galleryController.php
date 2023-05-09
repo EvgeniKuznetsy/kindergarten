@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Photo_gallery;
 
+
 use App\Models\Title_photo_gallery;
 
 use Illuminate\Http\Request;
@@ -18,7 +19,16 @@ class Photo_galleryController extends BaseController
 
         return redirect()->route('admin.title_photo_gallery.index');
     }
+    public function edit(Request $request, Title_photo_gallery $gallery) {
+        $params = [
+            'title' => $request->title,
 
+        ];
+
+        $gallery->update($params);
+
+        return redirect()->route('admin.title_photo_gallery.index');
+    }
 
     public function delete(Title_photo_gallery  $title_photo_galleries) {
         $title_photo_galleries->delete();

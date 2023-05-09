@@ -42,28 +42,6 @@
                 <a class="nav-link" data-widget="pushmenu" href="{{asset('22')}}#" role="button"><i
                         class="fas fa-bars"></i></a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('main')}}" class="nav-link">Главная</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('news')}}" class="nav-link">Новости</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('parents')}}" class="nav-link">Родителям</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('title_group')}}" class="nav-link">Наши группы</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{asset('photo_gallery')}}" class="nav-link">Фотогалерея</a>
-            </li>
-
-{{--            @if($name!="admin")--}}
-{{--                <li class="nav-item d-none d-sm-inline-block">--}}
-{{--                    <a href="{{asset('photogalery')}}" class="nav-link">Фотогалерея</a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
         </ul>
 
         <!-- Right navbar links -->

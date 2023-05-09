@@ -64,8 +64,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/groups', [IndexController::class, 'educators_groupsCreate'])->name('admin.educators_groups.createPage');
                 Route::post('/groups', [Educator_groupController::class, 'create'])->name('admin.post.educators_groups.create');
 
-//                Route::get('/edit/{educators}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-//                Route::post('/edit/{educators}', [Photo_galleryController::class, 'edit'])->name('admin.educators.edit');
+                Route::get('/edit/{groups}', [IndexController::class, 'educators_groupsUpdate'])->name('admin.educators_groups.updatePage');
+                Route::post('/edit/{groups}', [Educator_groupController::class, 'edit'])->name('admin.educators_groups.edit');
 
                 Route::get('/delete/{groups}', [Educator_groupController::class, 'delete'])->name('admin.educators_groups.delete');
             });
@@ -74,9 +74,9 @@ Route::middleware('auth')->group(function () {
 
                 Route::get('/educator/{id}', [IndexController::class, 'educatorsCreate'])->name('admin.educators.createPage');
                 Route::post('/educator', [EducatorController::class, 'create'])->name('admin.post.educators.create');
-//
-//                Route::get('/edit/{educator}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-//                Route::post('/edit/{educator}', [EducatorController::class, 'edit'])->name('admin.educators.edit');
+
+                Route::get('/edit/{educator}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
+                Route::post('/edit/{educator}', [EducatorController::class, 'edit'])->name('admin.educators.edit');
 
                 Route::get('/delete/{educator}', [EducatorController::class, 'delete'])->name('admin.educators.delete');
             });
@@ -89,8 +89,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/gallery', [IndexController::class, 'title_photo_galleryCreate'])->name('admin.title_photo_gallery.createPage');
                 Route::post('/gallery', [Photo_galleryController::class, 'create'])->name('admin.post.title_photo_gallery.create');
 
-//                Route::get('/edit/{educators}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-//                Route::post('/edit/{educators}', [Photo_galleryController::class, 'edit'])->name('admin.educators.edit');
+                Route::get('/edit/{gallery}', [IndexController::class, 'title_photo_galleryUpdate'])->name('admin.title_photo_gallery.updatePage');
+                Route::post('/edit/{gallery}', [Photo_galleryController::class, 'edit'])->name('admin.title_photo_gallery.edit');
 
                 Route::get('/delete/{title_photo_galleries}', [Photo_galleryController::class, 'delete'])->name('admin.title_photo_gallery.delete');
             });
@@ -99,7 +99,8 @@ Route::middleware('auth')->group(function () {
 
                 Route::get('/photo/{id}', [IndexController::class, 'photo_galleryCreate'])->name('admin.photo_gallery.createPage');
                 Route::post('/photo', [GalleryController::class, 'create'])->name('admin.post.photo_gallery.create');
-
+                Route::get('/edit/{photo}', [IndexController::class, 'photo_galleryUpdate'])->name('admin.photo_gallery.updatePage');
+                Route::post('/edit/{photo}', [GalleryController::class, 'edit'])->name('admin.photo_gallery.edit');
 
                 Route::get('/delete/{photo}', [GalleryController::class, 'delete'])->name('admin.photo_gallery.delete');
             });
@@ -107,7 +108,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('/main', "MainController@index")->name('main.index');
+Route::get('/main', [PageController::class,'main'])->name('main.index');
 Route::get('/title_group', [PageController::class,'title_group'])->name('title_group.index');
 Route::get('/title_group/educator/{id}', [PageController::class, 'educator'])->name('educator');
 Route::get('/parents', [PageController::class, 'parents'])->name('parents.index');

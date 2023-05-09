@@ -15,12 +15,9 @@ class GalleryController extends BaseController
     {
         $id=$request->title_photo_gallery_id;
 
-
-
         $path = $request->file('image')->store('public');
         $path = str_replace('public', '/storage', $path);
         $photo_gallery = Photo_gallery::create([
-            'title' => $request->title,
             'image' => $path,
             'title_photo_gallery_id'=>$request->title_photo_gallery_id,
 
@@ -31,15 +28,16 @@ class GalleryController extends BaseController
 
 
     }
-    public function edit(Request $request, Photo_gallery  $photo_gallery) {
-        $params = [
-            'title' => $request->name,
+    public function edit(Request $request, Photo_gallery  $photo) {
+        $params = [];
+        if ($request->image) {
+            $path = $request->file('image')->store('public');
+            $params['image'] = str_replace('public', '/storage', $path);
+        }
+        $photo->update($params);
 
-        ];
-
-        $photo_gallery->update($params);
-
-        return redirect()->route('admin.photo_gallery.index');
+        $id=$photo->title_photo_gallery_id;
+        return redirect()->route('admin.photo_gallery.index',compact('id'));
     }
 
     public function delete(Photo_gallery  $photo) {

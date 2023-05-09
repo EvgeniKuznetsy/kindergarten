@@ -17,6 +17,8 @@
                         <p class="">{{$post->full_name}}</p>
                         <p>{{$post->educator}}</p>
 
+
+                        <a href="{{route('admin.educators.updatePage', $post)}}" class="btn btn-danger">Редактировать</a>
                         <a href="{{route('admin.educators.delete', $post)}}" class="btn btn-danger">Удалить</a>
                     </div>
                 </div>

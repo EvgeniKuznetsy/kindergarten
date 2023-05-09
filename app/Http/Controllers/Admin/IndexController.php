@@ -68,6 +68,11 @@ class   IndexController extends Controller
 
         return view('admin.educators_groups.create');
     }
+    public function educators_groupsUpdate(Educators_group $groups) {
+
+
+        return view('admin.educators_groups.edit',compact('groups'));
+    }
     public function educators($id) {
 
 
@@ -96,6 +101,11 @@ class   IndexController extends Controller
 
         return view('admin.photo_gallery.create');
     }
+    public function title_photo_galleryUpdate(Title_photo_gallery $gallery) {
+
+        return view('admin.photo_gallery.edit',compact('gallery'));
+    }
+
     public function photo_gallery($id) {
 
         $titel_photo_gallery = Title_photo_gallery::where('id',$id)->get();
@@ -106,6 +116,11 @@ class   IndexController extends Controller
     public function photo_galleryCreate($id) {
         $titel_photo_gallery = Title_photo_gallery::get();
         return view('admin.gallery.create',compact('titel_photo_gallery','id'));
+    }
+
+    public function photo_galleryUpdate(Photo_gallery $photo) {
+
+        return view('admin.gallery.edit', compact('photo' ));
     }
 
 

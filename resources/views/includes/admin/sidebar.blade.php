@@ -49,6 +49,15 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('main.index')}}" class="nav-link">
+                <i class="nav-icon fas fa-align-justify"></i>
+                <p>
+                    Главная(Пользователя)
+                    <span class="badge badge-info right"></span>
+                </p>
+            </a>
+        </li>
 
     </ul>
 </nav>

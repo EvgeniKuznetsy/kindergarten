@@ -14,7 +14,7 @@ use Illuminate\Routing\Controller;
 
 class Educator_groupController extends Controller
 {
-    public function create(Request $request,Educator $groups): \Illuminate\Http\RedirectResponse
+    public function create(Request $request,Educators_group $groups): \Illuminate\Http\RedirectResponse
     {
         $groups = Educators_group::create([
             'title' => $request->title,
@@ -22,15 +22,15 @@ class Educator_groupController extends Controller
 
         return redirect()->route('admin.educators_groups.index');
     }
-    public function edit(Request $request, Educators_group  $educator) {
+    public function edit(Request $request, Educators_group  $groups) {
         $params = [
-            'title' => $request->name,
+            'title' => $request->title,
 
         ];
 
-        $educator->update($params);
+        $groups->update($params);
 
-        return redirect()->route('admin.groups.educator.index');
+        return redirect()->route('admin.educators_groups.index');
     }
 
     public function delete(Educators_group  $groups) {

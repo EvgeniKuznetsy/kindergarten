@@ -14,7 +14,9 @@
                     <div class="card-text">
                         <img src="{{$photo->image}}" alt="" class="col-5 width_image">
 
-                        <div class="mt-5"><a href="{{route('admin.photo_gallery.delete', $photo)}}" class="btn btn-danger">Удалить</a></div>
+                        <div class="mt-5"><a href="{{route('admin.photo_gallery.updatePage', $photo)}}" class="btn btn-danger">Редактировать</a>
+                            <a href="{{route('admin.photo_gallery.delete', $photo)}}" class="btn btn-danger">Удалить</a></div>
+
                     </div>
                 </div>
             @empty

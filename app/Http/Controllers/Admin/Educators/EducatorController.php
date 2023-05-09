@@ -31,9 +31,14 @@ class EducatorController extends Controller
     }
     public function edit(Request $request, Educator  $educator) {
         $params = [
-            'name' => $request->name,
-
+            'full_name' => $request->full_name,
+            'educator' => $request->educator,
+            'educator_group_id'=>$request->educator_group_id,
         ];
+        if ($request->image) {
+            $path = $request->file('image')->store('public');
+            $params['image'] = str_replace('public', '/storage', $path);
+        }
 
         $educator->update($params);
 
