@@ -61,15 +61,22 @@
             @endauth
 
 
-            <form method="post" action="{{route('logout')}}">
+            <form method="post" class="auth" action="{{route('logout')}}">
                 @csrf
                 @auth()
                     <div class="item"><a href="{{route('logout')}}">Выход</a></div>
                 @else
-                    <div class="item"><a href="{{route('home')}}">Регистрация/Авторизация</a>
+                    <div class="item"><a href="{{route('home')}}">Войти</a>
+
+
+                    </div>
+                    <div class="item">
+
+                        <a href="{{ route('register') }}">Регистрация</a>
                     </div>
 
                 @endauth
+
 
             </form>
 
@@ -133,6 +140,8 @@
                                 @else
                                     <a href="{{route('home')}}" class="navb-button">Авторизация</a>
 
+                                    <a href="{{ route('register') }}" class="mt-2 navb-button">Регистрация</a>
+
                                 @endauth
 
                             </form>
@@ -153,8 +162,8 @@
 </header>
 <div class="background">
 <div class="main_back">
-    <div class="main">
-        <div class="text-center h2 mb-2 pt-2">Mуниципальное бюджетное дошкольное образовательное учреждение города Кургана Детский сад комбинированного вида № 103
+    <div class="main ">
+        <div class="text-center  h2 mb-5 pt-5">Mуниципальное бюджетное дошкольное образовательное учреждение города Кургана Детский сад комбинированного вида № 103
             «Журавушка»</div>
 
     @yield('content')

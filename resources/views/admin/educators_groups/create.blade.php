@@ -3,7 +3,7 @@
 
 @section('content')
     <div>
-        <h2 class="mt-2">Создать новость</h2>
+        <h2 class="mt-2">Создать группу</h2>
         <form method="post" action="{{route('admin.post.educators_groups.create')}}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

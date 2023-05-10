@@ -14,14 +14,15 @@
                         @if($objects ->image && $objects->title_photo_gallery_id==$title->id && $index==false)
                             <div class=" col-md-6 col-sm-12 mt-4 ">
                                 <div class="mt-3 text-center {{$index=true}}">
-                                    <div class="p-3 mb-2  text-black p-3">
-                                        <a href="{{route('photo',$title->id)}}" class="text-decoration-none ">
+                                    <div class="p-3 mb-2  text-black p-3 ">
 
-                                            <img src="{{$objects ->image}}" class="img-fluid width: 100% \9" style="max-height: 300px">
+                                        <a href="{{route('photo',$title->id)}}" class="mt-auto mb-auto text-decoration-none ">
+                                            <h2 class="mb-3">{{$title->title}}</h2>
+                                            <img src="{{$objects ->image}}" class=" img-fluid width: 100% \9" style="max-height: 300px">
 
                                         </a>
-                                        <h2 class="">{{$title->title}}
-                                        </h2>
+
+
                                     </div>
                                 </div>
                             </div>

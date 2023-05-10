@@ -9,7 +9,7 @@
                     <div class="text-center"><a href="{{route('admin.news.index')}}"><h3>Новости</h3></a></div>
                     <img  src="{{$index->image}}" alt="" class="img-fluid width: 100% \9 h-75 ml-auto mr-auto">
                     <div class="mt-4 mb-2">Название: "{{$index->title}}"</div>
-                    <div class="mt-2 mb-2">Текст: "{{$index->text}}"</div>
+                    <div class="mt-2 mb-2 text-truncate" style="max-height: 300px">{{$index->text}}</div>
 
                 </div>
             @endforeach
@@ -18,7 +18,8 @@
                     <div class="text-center"><a href="{{route('admin.parents.index')}}"><h3>Для родителей</h3></a></div>
                     <img src="{{$index->image}}" alt="" class="img-fluid width: 100% \9 h-75">
                     <div class="mt-4 mb-2">Название: "{{$index->title}}"</div>
-                    <div class="mt-2 mb-2">Текст: "{{$index->text}}"</div>
+
+                    <div class="mt-2 mb-2 text-truncate">{{$index->text}}</div>
                 </div>
             @endforeach
             <div class="col-md-6 col-sm-12 m-3 ml-auto mr-auto">

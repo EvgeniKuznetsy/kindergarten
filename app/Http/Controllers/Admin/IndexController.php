@@ -75,10 +75,10 @@ class   IndexController extends Controller
     }
     public function educators($id) {
 
-
+        $group = Educators_group::where('id',$id)->get();
         $educators = Educator::where('educator_group_id',$id)->get();
 
-        return view('admin.educators.index', compact('educators','id'));
+        return view('admin.educators.index', compact('educators','group','id'));
     }
     public function educatorsCreate($id) {
 

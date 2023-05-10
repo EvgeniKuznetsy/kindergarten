@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center h1">Группы</div>
-    <div class="admin-content">
+    <div class="container">
         <a href="{{route('admin.educators_groups.createPage')}}" class="btn btn-primary mb-2">Создать</a>
         <div class="card-container">
             @forelse($educators_groups as $groups)

@@ -34,7 +34,24 @@ a:hover{
     line-height: 1.3em;
     height: 10em;
 }
+.truncate-text-news {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    column-width: auto;
+    line-height: 1.3em;
+    height: 15em;
+}
+.truncate-text-admin {
 
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    column-width: auto;
+    line-height: 1.3em;
+    height: 15em;
+}
 .banner a img{
     max-width: 600px;
 }
@@ -42,6 +59,9 @@ a:hover{
     .banner a img{
         max-width: 100%;
     }
+}
+.auth{
+    display: flex;
 }
 
 header{

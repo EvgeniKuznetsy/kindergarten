@@ -3,7 +3,7 @@
 
 @section('content')
     <div>
-        <h2 class="mt-2">Создать новость</h2>
+        <h2 class="mt-2">Создать альбом</h2>
         <form method="post" action="{{route('admin.post.title_photo_gallery.create')}}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">

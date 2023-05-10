@@ -3,7 +3,7 @@
 
 @section('content')
     <div>
-        <h2 class="mt-2">Редактировать новость</h2>
+        <h2 class="mt-2">Редактировать пост для родителей</h2>
         <form method="post" action="{{route('admin.parents.edit', $parents)}}" enctype="multipart/form-data">
             @method('post')
             @csrf
