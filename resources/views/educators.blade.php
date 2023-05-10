@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('title',"Наши группы")
 @section('content')
-    <div class="main">
 
         <div class="text-center container">
             @foreach ($group as $object)
@@ -24,6 +23,6 @@
 
             </div>
         </div>
-    </div>
+
 
 @endsection

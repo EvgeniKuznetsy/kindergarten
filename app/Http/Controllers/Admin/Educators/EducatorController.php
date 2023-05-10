@@ -29,20 +29,21 @@ class EducatorController extends Controller
 
         return redirect()->route('admin.educators.index',compact('id'));
     }
-    public function edit(Request $request, Educator  $educator) {
+    public function edit(Request $request, Educator  $post) {
+        $id=$post->educator_group_id;
         $params = [
             'full_name' => $request->full_name,
             'educator' => $request->educator,
-            'educator_group_id'=>$request->educator_group_id,
+            'educator_group_id'=>$id,
         ];
         if ($request->image) {
             $path = $request->file('image')->store('public');
             $params['image'] = str_replace('public', '/storage', $path);
         }
 
-        $educator->update($params);
+        $post->update($params);
 
-        return redirect()->route('admin.educator.index');
+        return redirect()->route('admin.educators.index',compact('id'));
     }
 
     public function delete(Educator $educator) {

@@ -17,8 +17,8 @@ class PageController extends Controller
 {
     public function main(){
 
-        $photo=Photo_gallery::orderByDesc('id')->limit(5)->get();
-        return view("main",compact('photo'));
+        $news=News::orderByDesc('id')->limit(5)->get();
+        return view("main",compact('news'));
 
     }
     public function news(){
@@ -58,6 +58,9 @@ class PageController extends Controller
     }
     public function reloc(){
         return view('main');
+    }
+    public function about(){
+        return view('about');
     }
 
 }

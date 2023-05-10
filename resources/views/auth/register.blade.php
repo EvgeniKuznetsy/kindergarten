@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title',"Регистрация")
 @section('content')
-    <div class="main d-flex align-items-center">
+    <div class="d-flex align-items-center">
         <div class="container-fluid ">
-            <div class="card-header text-center h1 mb-2 mt-2">Регистрация</div>
+            <div class="text-center h1 mb-2 mt-2">Регистрация</div>
             <div class="row d-flex justify-content-center  ">
                 <div class="col-md-6">
 
@@ -63,8 +63,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Подтверждение
-                                        пороля</label>
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Повторите пороль</label>
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"

@@ -86,9 +86,9 @@ class   IndexController extends Controller
     }
 
 
-    public function educatorsUpdate(Educator $educators) {
+    public function educatorsUpdate(Educator $post) {
 
-        return view('admin.educators.edit', compact('educators' ));
+        return view('admin.educators.edit', compact('post' ));
     }
     public function title_photo_gallery() {
 

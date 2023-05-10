@@ -2,25 +2,21 @@
 
 @section('content')
 
-    <div class="admin-content">
+
         <a href="{{route('admin.educators.createPage',$id)}}" class="btn btn-primary">Создать</a>
-        <div class="card-container">
+        <div class="row mt-5 center-block w-100 ">
             @forelse($educators as $post)
 
-                <div class="card">
-                    <div class="card-text">
-
-
+                <div class="col-md-6 col-sm-12 mb-4">
                         <p>
-                            <img src="{{$post->image}}" alt="" class="col-1 width_image">
+                            <img src="{{$post->image}}" alt="" class="col-3 width_image">
                         </p>
-                        <p class="">{{$post->full_name}}</p>
-                        <p>{{$post->educator}}</p>
+                        <p>ФИО: {{$post->full_name}}</p>
+                        <p>Специальность: {{$post->educator}}</p>
 
 
                         <a href="{{route('admin.educators.updatePage', $post)}}" class="btn btn-danger">Редактировать</a>
                         <a href="{{route('admin.educators.delete', $post)}}" class="btn btn-danger">Удалить</a>
-                    </div>
                 </div>
             @empty
                 <div class="alert" role="alert">
@@ -28,5 +24,5 @@
                 </div>
             @endforelse
         </div>
-    </div>
+
 @endsection

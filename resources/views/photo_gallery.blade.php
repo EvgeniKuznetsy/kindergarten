@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title',"Фотогалерея")
 @section('content')
-    <div class="main">
+
         <div class="container">
-            <div class="text-center"><h1>Фотогалерея</h1></div>
+            <div class="text-center m-5"><h1>Фотогалерея</h1></div>
             <div class="row mt-3  ml-auto mr-auto">
                 @forelse($title as $index =>$title)
 
@@ -35,6 +35,6 @@
 
 
         </div>
-    </div>
+
 
 @endsection

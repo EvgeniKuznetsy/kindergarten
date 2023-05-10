@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title',"Наши группы")
 @section('content')
-    <div class="main container">
+    <div class="container">
 
-        <h1 class='text-center m-4'>Фотогалерея</h1>
+        <h1 class='text-center mb-4'>Фотогалерея</h1>
 
         <div class="row mt-3  ml-auto mr-auto">
             @forelse($group as $index =>$title)

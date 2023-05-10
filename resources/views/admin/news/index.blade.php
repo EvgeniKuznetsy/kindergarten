@@ -8,9 +8,9 @@
             @forelse($news as $post)
                 <div class="card">
                     <img src="{{$post->image}}" class="col-5 width_image" alt="{{$post->title}}">
-                    <div class="card-text">
-                        <p class="">{{$post->title}}</p>
-                        <p class="">{{$post->text}}</p>
+                    <div class="text-center">
+                        <div class="">{{$post->title}}</div>
+                        <div class="">{{$post->text}}</div>
                         <a href="{{route('admin.news.updatePage', $post)}}" class="btn btn-primary">Редактировать</a>
                         <a href="{{route('admin.news.delete', $post)}}" class="btn btn-danger">Удалить</a>
                     </div>

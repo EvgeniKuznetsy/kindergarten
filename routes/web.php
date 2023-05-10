@@ -75,8 +75,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/educator/{id}', [IndexController::class, 'educatorsCreate'])->name('admin.educators.createPage');
                 Route::post('/educator', [EducatorController::class, 'create'])->name('admin.post.educators.create');
 
-                Route::get('/edit/{educator}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
-                Route::post('/edit/{educator}', [EducatorController::class, 'edit'])->name('admin.educators.edit');
+                Route::get('/edit/{post}', [IndexController::class, 'educatorsUpdate'])->name('admin.educators.updatePage');
+                Route::post('/edit/{post}', [EducatorController::class, 'edit'])->name('admin.educators.edit');
 
                 Route::get('/delete/{educator}', [EducatorController::class, 'delete'])->name('admin.educators.delete');
             });
@@ -115,6 +115,8 @@ Route::get('/parents', [PageController::class, 'parents'])->name('parents.index'
 Route::get('/photo_gallery', [PageController::class, 'title'])->name('photo_gallery');
 Route::get('/photo_gallery/photo/{id}', [PageController::class, 'photo'])->name('photo');
 Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

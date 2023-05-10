@@ -2,26 +2,25 @@
 
 @section('title',"Новости")
 @section('content')
-    <div class="main">
+    <div class="container">
 
             <div class="text-center">
-                <h1>Новости</h1>
+                <h1 class="m-5">Новости</h1></div>
                 @forelse($news as $index => $news)
-                    <div class="card-wrap-new">
-                        <div class="card-image-new">
-                            <img src="{{$news->image}}"alt="{{$news->title}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img  class="img-fluid width: 100% \9 h-75 " src="{{$news->image}}"alt="{{$news->title}}">
                         </div>
-                        <div class="card-text-new">
-                            <p>{{$news->created_at}}</p>
-                            <h2>{{$news->title}}</h2>
-                            <p>{{$news->text}}</p>
+
+                        <div class="col-md-6">
+                            <div class="h2">{{$news->title}} {{$news->created_at}}</div>
+
+                            {{$news->text}}
                         </div>
-                    </div>
                 @empty
                     <h2>Новостей нет</h2>
                 @endforelse
             </div>
-
     </div>
 
 
